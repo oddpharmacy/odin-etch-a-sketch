@@ -8,6 +8,14 @@ function createRow(n) {
         div.className = 'box';
         div.style.cssText = 'width: 15px; height: 15px; border: 1px solid black';
         row.appendChild(div);
+
+        const boxes = document.querySelectorAll('.box')
+
+        boxes.forEach((box) => {
+            box.addEventListener('mouseover',() => {
+                box.style.backgroundColor = 'lightblue';
+            });
+        });
     }
     container.appendChild(row);
 }
@@ -16,19 +24,11 @@ for (let i = 0; i < 16; i++) {
     createRow(16);
 }
 
-const boxes = document.querySelectorAll('.box')
-
-boxes.forEach((box) => {
-    box.addEventListener('mouseover',() => {
-        box.style.backgroundColor = 'lightblue';
-    });
-});
-
 const button = document.querySelector('button');
 
 button.addEventListener('click', () => {
     let numSquares = prompt("Enter number of squares per side");
-    if ((typeof numSquares == 'undefined') || (numSquares < 1) || (numSquares > 100)) {
+    if ((numSquares < 1) || (numSquares > 100)) {
         alert("Numbers between 1 and 100 only");
         return;
     }
@@ -43,3 +43,4 @@ function removeBoxes() {
         container.removeChild(container.firstChild);
     }
 }
+
