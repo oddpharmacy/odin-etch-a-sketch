@@ -2,11 +2,12 @@ const container = document.querySelector('.container');
 
 function createRow(n) {
     const row = document.createElement('div');
+    row.className = 'row';
 
     for (let i = 0; i < n; i++) {
         const div = document.createElement('div');
         div.className = 'box';
-        div.style.cssText = 'width: 15px; height: 15px; border: 1px solid gray';
+        div.style.cssText = 'border: 1px solid gray';
         row.appendChild(div);
     }
 

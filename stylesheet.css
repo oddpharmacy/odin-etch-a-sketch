@@ -1,6 +1,46 @@
 h1 {
     text-align: center;
+    color: #7393B3;
+}
+
+.bigcontainer {
+    display: flex;
+    flex-direction: column;
 }
 .container {
+    display: flex;
+    margin: auto;
+    height: 660px;
+    width: 660px;
+    justify-content: center;
+}
 
+button {
+    display: flex;
+    margin: auto;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    color: grey;
+    padding: 5px 15px;
+    border: 1px solid white;
+}
+
+.space {
+    margin: 30px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.box {
+    flex: 1;
+}
+
+p {
+    text-align: center;
+    color: gray;
+    font-style: italic;
 }
