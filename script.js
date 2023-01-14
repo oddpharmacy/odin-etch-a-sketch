@@ -1,8 +1,8 @@
 const container = document.querySelector('.container');
 
-function createRow() {
+function createRow(n) {
     const row = document.createElement('div');
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < n; i++) {
         const div = document.createElement('div');
         div.textContent = 'x';
         div.className = 'box';
@@ -13,7 +13,7 @@ function createRow() {
 }
 
 for (let i = 0; i < 16; i++) {
-    createRow();
+    createRow(16);
 }
 
 const boxes = document.querySelectorAll('.box')
@@ -23,3 +23,23 @@ boxes.forEach((box) => {
         box.style.backgroundColor = 'lightblue';
     });
 });
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', () => {
+    let numSquares = prompt("Enter number of squares per side");
+    if ((typeof numSquares == 'undefined') || (numSquares < 1) || (numSquares > 100)) {
+        alert("Numbers between 1 and 100 only");
+        return;
+    }
+    removeBoxes();
+    for (let i = 0; i < numSquares; i++) {
+        createRow(numSquares);
+    }
+})
+
+function removeBoxes() {
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
