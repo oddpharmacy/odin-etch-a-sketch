@@ -2,26 +2,21 @@ const container = document.querySelector('.container');
 
 function createRow(n) {
     const row = document.createElement('div');
+
     for (let i = 0; i < n; i++) {
         const div = document.createElement('div');
-        div.textContent = 'x';
         div.className = 'box';
-        div.style.cssText = 'width: 15px; height: 15px; border: 1px solid black';
+        div.style.cssText = 'width: 15px; height: 15px; border: 1px solid gray';
         row.appendChild(div);
-
-        const boxes = document.querySelectorAll('.box')
-
-        boxes.forEach((box) => {
-            box.addEventListener('mouseover',() => {
-                box.style.backgroundColor = 'lightblue';
-            });
-        });
     }
+
     container.appendChild(row);
+    hover();
 }
 
-for (let i = 0; i < 16; i++) {
-    createRow(16);
+for (let i = 0; i < 5; i++) {
+    createRow(5);
+    // hover();
 }
 
 const button = document.querySelector('button');
@@ -44,3 +39,12 @@ function removeBoxes() {
     }
 }
 
+function hover() {
+    const boxes = document.querySelectorAll('.box')
+
+    for (const box of boxes) {
+        box.addEventListener('mouseover',() => {
+            box.style.backgroundColor = 'lightblue';
+        }); 
+    }
+}
